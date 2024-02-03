@@ -11,6 +11,7 @@ router.get('/user/:name', EmployeeController.getUserById)
 
 router.post('/create', EmployeeController.createUser)
 router.post('/login', EmployeeController.login)
+router.post('/forgot-password', EmployeeController.resetPassword);
 
 
 export default router

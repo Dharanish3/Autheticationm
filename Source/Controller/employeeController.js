@@ -97,9 +97,37 @@ const getUserById = async (req, res) => {
     }
     };
 
+
+    const resetPassword = async (req, res) => {
+      try {
+        const { email, password } = req.body;
+        const user = await UserModel.findOne({ email });
+    
+        if (user) {
+          // Update the user's password with the new hashed password
+          user.password = await Auth.createHash(password);
+          await user.save();
+    
+          res.status(200).send({
+            message: "Password Reset Successful",
+          });
+        } else {
+          res.status(404).send({
+            message: "User not found",
+          });
+        }
+      } catch (error) {
+        res.status(500).send({
+          message: "Internal Server Error",
+          error: error.message,
+        });
+      }
+    };
+
 export default {
   getUser,
   getUserById,
   createUser,
   login,
+  resetPassword
 };
