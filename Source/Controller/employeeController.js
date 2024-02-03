@@ -6,7 +6,7 @@ dotenv.config();
 // get all user
 const getUser = async (req, res) => {
   try {
-    const user = await UserModel.find();
+    const user = await UserModel.find({},{password : 0});
     res.status(200).send({
       message: "User data",
       user,
