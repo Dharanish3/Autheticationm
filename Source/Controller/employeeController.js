@@ -89,7 +89,7 @@ const getUserById = async (req, res) => {
             message: "Incorrect Email",
         });
         }
-    } catch (error) {
+    } catch (error) {   
         res.status(500).send({
         message: "Internal Server Error",
         error: error.message,

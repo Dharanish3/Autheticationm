@@ -3,7 +3,8 @@ const router = express.Router()
 import EmployeeController from '../Controller/employeeController.js'
 import Auth from '../Auth/authenticate.js'
 
-router.get('/user', Auth.authenticate, Auth.adminAuth, EmployeeController.getUser)
+// router.get('/user', Auth.authenticate, Auth.adminAuth, EmployeeController.getUser)
+router.get('/user', EmployeeController.getUser)
 router.get('/user/:name', EmployeeController.getUserById)
 
 
