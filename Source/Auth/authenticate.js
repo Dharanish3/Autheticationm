@@ -8,7 +8,7 @@ const Salt = 10;  //suffle alphaphetic
 // Create password Hash Create
 const createHash =  async (data) => {
     const salt = await bcrypt.genSaltSync(Salt);
-    const hash = await bcrypt.hashSync(data, salt);
+    const hash = await bcrypt.hashSync(data, salt );
     return hash
 
 }

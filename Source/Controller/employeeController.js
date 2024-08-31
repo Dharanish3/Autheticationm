@@ -26,7 +26,7 @@ const createUser = async (req, res) => {
     if (!user) {
       req.body.password = await Auth.createHash(req.body.password);
       const createUser = await UserModel.create(req.body);
-      res.status(201).send({
+      res.status(201).send({  
         message: "User Created Successfully",
       });
     }
@@ -61,6 +61,8 @@ const getUserById = async (req, res) => {
   }
 };
 
+
+
 // login
     const login = async (req, res) => {
     try {
@@ -89,7 +91,7 @@ const getUserById = async (req, res) => {
             message: "Incorrect Email",
         });
         }
-    } catch (error) {   
+    } catch (error) {     
         res.status(500).send({
         message: "Internal Server Error",
         error: error.message,
@@ -97,6 +99,7 @@ const getUserById = async (req, res) => {
     }
     };
 
+    
 
     const resetPassword = async (req, res) => {
       try {
